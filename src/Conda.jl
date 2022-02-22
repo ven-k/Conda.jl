@@ -455,4 +455,8 @@ function pip(cmd::AbstractString, pkgs::PkgOrPkgs, env::Environment=ROOTENV)
     nothing
 end
 
+function __init__()
+    global condadir = abspath(first(DEPOT_PATH), "conda")
+    global condadeps = joinpath(condadir, "deps.jl")
+end
 end
